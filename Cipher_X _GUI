@@ -1,0 +1,84 @@
+package freq_table;
+
+// @author Bilge
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.Event.*;
+import javax.swing.JFrame.*;
+import javax.swing.JLabel.*;
+import javax.swing.JTextField.*;
+import javax.swing.JPanel.*;
+
+public class Cipher_X extends JFrame implements ActionListener {
+
+    // @param args the command line arguments
+    
+    JLabel label1 = new JLabel(" *AIII* # English Frequency Table # ");
+    
+    JRadioButton En = new JRadioButton("English");
+    JRadioButton Tr = new JRadioButton("Turkish");
+    JRadioButton Gr = new JRadioButton("German");
+    JRadioButton Fr = new JRadioButton("French");
+    
+    ButtonGroup B_Gr = new ButtonGroup();
+    
+    
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Cipher_X Cipher = new Cipher_X();
+    }
+ 
+    public Cipher_X(){
+        
+        // In this part we will make the GUI basic code to window
+        
+        //Temel ekran tasarım kısmı + Basic window code part
+        
+        setLayout(new FlowLayout());
+        setSize(720, 480);
+        setTitle("English Frequency Table V.1.0");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+        this.setResizable(false);
+        
+     
+        
+        //Label kısmı + Labels Part
+       
+        add(label1);
+        this.label1.setFont(new Font("Verdana", Font.BOLD,16));
+        
+        // Radio Button ekleme ve özelleştirme yeri + RadioButtons set up parts
+        add(En);
+        add(Tr);
+        add(Gr);
+        add(Fr);
+        
+        
+        En.addActionListener(this);
+        Tr.addActionListener(this);
+        Gr.addActionListener(this);
+        Fr.addActionListener(this);
+        
+        //Otomatik dil seçimi + when app start-up english auto selected
+        En.setSelected(true);
+        
+        //Dil seçimi kapatıldı + Language option closed
+        Tr.setEnabled(false);
+        Gr.setEnabled(false);
+        Fr.setEnabled(false);
+        
+        this.B_Gr.add(En);
+        this.B_Gr.add(Tr);
+        this.B_Gr.add(Gr);
+        this.B_Gr.add(Fr);
+    }
+    
+    public void actionPerformed(ActionEvent e){
+        
+    }
+
+    
+}
