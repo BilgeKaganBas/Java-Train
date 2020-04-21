@@ -10,12 +10,29 @@ import javax.swing.JFrame.*;
 import javax.swing.JLabel.*;
 import javax.swing.JTextField.*;
 import javax.swing.JPanel.*;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.TextArea;
+
 
 public class Cipher_X extends JFrame implements ActionListener {
 
     // @param args the command line arguments
-    
     JLabel label1 = new JLabel(" *AIII* # English Frequency Table # ");
+    JLabel label2 = new JLabel("Input :");
+    JLabel label3 = new JLabel("Output :");
+    
+    JTextField ınput = new JTextField(40);
+    JTextArea output = new JTextArea(10,39);
+    
+    JButton analysis = new JButton("Analysis");
+    JButton clear = new JButton("Clear");
+    
+    JPanel panel1 = new JPanel();
+    JPanel panel2 = new JPanel();
+    JPanel panel3 = new JPanel();
+    JPanel panel4 = new JPanel();
+    JPanel panel5 = new JPanel();
     
     JRadioButton En = new JRadioButton("English");
     JRadioButton Tr = new JRadioButton("Turkish");
@@ -37,25 +54,29 @@ public class Cipher_X extends JFrame implements ActionListener {
         //Temel ekran tasarım kısmı + Basic window code part
         
         setLayout(new FlowLayout());
-        setSize(720, 480);
+        setSize(600, 480);
         setTitle("English Frequency Table V.1.0");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         this.setResizable(false);
+ 
         
      
         
         //Label kısmı + Labels Part
        
-        add(label1);
+        panel1.add(label1);
         this.label1.setFont(new Font("Verdana", Font.BOLD,16));
+        add("North",panel1);
+       
         
         // Radio Button ekleme ve özelleştirme yeri + RadioButtons set up parts
-        add(En);
-        add(Tr);
-        add(Gr);
-        add(Fr);
-        
+        panel2.add(En);
+        panel2.add(Tr);
+        panel2.add(Gr);
+        panel2.add(Fr);
+        add("Center",panel2);
+       
         
         En.addActionListener(this);
         Tr.addActionListener(this);
@@ -74,6 +95,25 @@ public class Cipher_X extends JFrame implements ActionListener {
         this.B_Gr.add(Tr);
         this.B_Gr.add(Gr);
         this.B_Gr.add(Fr);
+        
+        
+        //ınput ve output label kısımları ile beraber JTextField kısımları eklendi ve yerleştirildi.
+        
+        panel3.add(label2);
+        this.label2.setFont((new Font("Verdana", Font.BOLD,16)));
+        panel3.add(ınput);
+        add("Center", panel3);
+        
+        panel4.add(label3);
+        this.label3.setFont((new Font("Verdana", Font.BOLD, 16)));
+        panel4.add(output);
+        add("Center", panel4);
+        
+        panel5.add(analysis);
+        add("Center", panel5);
+        
+        panel5.add(clear);
+        add("Center", panel5);
     }
     
     public void actionPerformed(ActionEvent e){
