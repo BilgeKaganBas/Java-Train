@@ -14,6 +14,8 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.TextArea;
 
+import java.util.ArrayList;
+
 
 public class Cipher_X extends JFrame implements ActionListener {
 
@@ -42,7 +44,12 @@ public class Cipher_X extends JFrame implements ActionListener {
     ButtonGroup B_Gr = new ButtonGroup();
     
     
+    //English alphabet for frequency analysis !! + İngilizce alfabesi analiz için eklendi.
+    
+    String ENalpha = "abcdefghijklmnopqrstuvwxyz";
+    
     public static void main(String[] args) {
+        
         // TODO code application logic here
         Cipher_X Cipher = new Cipher_X();
     }
@@ -54,7 +61,7 @@ public class Cipher_X extends JFrame implements ActionListener {
         //Temel ekran tasarım kısmı + Basic window code part
         
         setLayout(new FlowLayout());
-        setSize(600, 480);
+        setSize(600, 360);
         setTitle("English Frequency Table V.1.0");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -100,24 +107,64 @@ public class Cipher_X extends JFrame implements ActionListener {
         //ınput ve output label kısımları ile beraber JTextField kısımları eklendi ve yerleştirildi.
         
         panel3.add(label2);
-        this.label2.setFont((new Font("Verdana", Font.BOLD,16)));
+        this.label2.setFont((new Font("Verdana", Font.BOLD,14)));
         panel3.add(ınput);
         add("Center", panel3);
+        
+        
         
         panel4.add(label3);
         this.label3.setFont((new Font("Verdana", Font.BOLD, 16)));
         panel4.add(output);
         add("Center", panel4);
         
+        
+        //Buttons Part + Button Kısmı
         panel5.add(analysis);
         add("Center", panel5);
         
         panel5.add(clear);
         add("Center", panel5);
+        
+        clear.addActionListener(this);
+        this.add(clear);
+        
+        analysis.addActionListener(this);
+        this.add(analysis);
+    }
+    
+    private void init(){
+        
+        //Adding uppercase letters to dictionary
+        ENalpha += (ENalpha.toUpperCase());
+        
+        System.out.println(ENalpha);
     }
     
     public void actionPerformed(ActionEvent e){
         
+        double E =12.02, T =9.10, A =8.12, O =7.68, I =7.31, N =6.95, S =6.28, 
+               R =6.02, H = 5.92, D =4.32, L =3.98, U =2.88, C =2.71, M =2.61, 
+               F =2.30, Y =2.11, W = 2.09, G =2.03, P =1.82, B =1.49, V =1.11, 
+               K =0.69, X =0.17, Q =0.11, J =0.10, Z =0.07;
+        
+        double th =1.52, he = 1.28, in = 0.94, er =0.94, an =0.82, re =0.68, 
+               nd =0.63, at =0.59, on =0.57, nt =0.56, ha =0.56, es =0.56, 
+               st =0.55, en =0.55, ed =0.53, to =0.52, it =0.50, ou =0.50, 
+               ea =0.47, hi =0.46, is =0.46, or =0.43, ti =0.34, as =0.33,
+               te =0.27, et =0.19, ng =0.18, of =0.16, al =0.09, de =0.09,
+               se =0.08, le =0.08, sa =0.06, si =0.05, ar =0.04, ve =0.04,
+               ra =0.04, ld =0.02, ur =0.02;
+        
+        if(e.getSource() == clear){
+            ınput.setText("");
+            analysis.setText("");
+            return;
+        }
+        else if(e.getSource() == analysis){
+            
+            
+        }
     }
 
     
