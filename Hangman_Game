@@ -1,0 +1,306 @@
+package homeworkein;
+
+import javax.swing.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.font.*;
+import javax.swing.JLabel.*;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.JTextField;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import java.awt.BorderLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import javax.swing.JFileChooser; //For File Chooser
+import java.io.File; //For File Chooser
+import javafx.stage.FileChooser;
+
+public class HangmanGame extends JFrame implements ActionListener {
+ 
+
+    //Menu Bar'ın oluşturulması
+    JMenuBar MenuBar = new JMenuBar();
+    
+    JMenu m1 = new JMenu("File");
+    JMenu m2 = new JMenu("Options");
+    
+    //File Menu Items
+    JMenuItem NG = new JMenuItem("New Game");
+    JMenuItem SG = new JMenuItem("Save Game");
+    JMenuItem LG = new JMenuItem("Load Game");
+    JMenuItem Ex = new JMenuItem("Exit");
+    
+    //Options Menu Items
+    JMenuItem Op = new JMenuItem("Options");
+    
+    //For File Chooser
+    JFileChooser FileChooser = new JFileChooser();
+    
+    
+    
+    //ButtonGroups 
+    JButton a = new JButton("A");
+    JButton b = new JButton("B");
+    JButton c = new JButton("C");
+    JButton d = new JButton("D");
+    JButton e = new JButton("E");
+    JButton f = new JButton("F");
+    JButton g = new JButton("G");
+    JButton h = new JButton("H");
+    JButton ı = new JButton("I");
+    JButton j = new JButton("J");
+    JButton k = new JButton("K");
+    JButton l = new JButton("L");
+    JButton m = new JButton("M");
+    JButton n = new JButton("N");
+    JButton o = new JButton("O");
+    JButton p = new JButton("P");
+    JButton q = new JButton("Q");
+    JButton r = new JButton("R");
+    JButton s = new JButton("S");
+    JButton t = new JButton("T");
+    JButton u = new JButton("U");
+    JButton v = new JButton("V");
+    JButton w = new JButton("W");
+    JButton x = new JButton("X");
+    JButton y = new JButton("Y");
+    JButton z = new JButton("Z");
+    
+    //JTextField, Button, JLabel Place
+    JTextField ınput = new JTextField(30);
+    JButton guess = new JButton("Guess");
+    JLabel label1 = new JLabel("Remaining Chance :");
+    
+    JLabel try1 = new JLabel("___");
+    JLabel try2 = new JLabel("___");
+    JLabel try3 = new JLabel("___");
+    JLabel try4 = new JLabel("___");
+    JLabel try5 = new JLabel("___");
+    JLabel try6 = new JLabel("___");
+    JLabel try7 = new JLabel("___");
+    JLabel try8 = new JLabel("___");
+    JLabel try9 = new JLabel("___");
+    JLabel try10 = new JLabel("___");
+    JLabel try11 = new JLabel("___");
+    
+    JPanel Panel1 = new JPanel(new FlowLayout(FlowLayout.CENTER));
+    JPanel Panel2 = new JPanel(new FlowLayout(FlowLayout.CENTER));
+    JPanel Panel3 = new JPanel(new FlowLayout(FlowLayout.CENTER));
+    
+    public HangmanGame(){
+        
+        setLayout(new FlowLayout());
+        setSize(620,320);
+        setTitle("Hangman Game v1.0");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+        setResizable(false);
+        
+       
+        
+        m1.add(NG);
+        m1.add(SG);
+        m1.add(LG);
+        m1.add(Ex);
+        
+        m2.add(Op);
+       
+        MenuBar.add(m1);
+        MenuBar.add(m2);
+        setJMenuBar(MenuBar); //Important addition ! Without this menubar can not complete and does not work as well
+        
+        NG.addActionListener(this);
+        SG.addActionListener(this);
+        LG.addActionListener(this);
+        Ex.addActionListener(this);
+        Op.addActionListener(this);
+        
+        Panel1.add(try1);
+        Panel1.add(try2);
+        Panel1.add(try3);
+        Panel1.add(try4);
+        Panel1.add(try5);
+        Panel1.add(try6);
+        Panel1.add(try7);
+        Panel1.add(try8);
+        Panel1.add(try9);
+        Panel1.add(try10);
+        Panel1.add(try11);
+        
+        
+        Panel2.add(a);
+        Panel2.add(b);
+        Panel2.add(c);
+        Panel2.add(d);
+        Panel2.add(e);
+        Panel2.add(f);
+        Panel2.add(g);
+        Panel2.add(h);
+        Panel2.add(ı);
+        Panel2.add(j);
+        Panel2.add(k);
+        Panel2.add(l);
+        Panel2.add(m);
+        Panel2.add(n);
+        Panel2.add(o);
+        Panel2.add(p);
+        Panel2.add(q);
+        Panel2.add(r);
+        Panel2.add(s);
+        Panel2.add(t);
+        Panel2.add(u);
+        Panel2.add(v);
+        Panel2.add(w);
+        Panel2.add(x);
+        Panel2.add(y);
+        Panel2.add(z);
+        
+      
+        a.addActionListener(this);
+	this.add(a);
+        
+        b.addActionListener(this);
+	this.add(b);
+        
+        c.addActionListener(this);
+	this.add(c);
+        
+        d.addActionListener(this);
+	this.add(d);
+        
+        e.addActionListener(this);
+	this.add(e);
+        
+        f.addActionListener(this);
+	this.add(f);
+        
+        g.addActionListener(this);
+	this.add(g);
+        
+        h.addActionListener(this);
+	this.add(h);
+        
+        ı.addActionListener(this);
+	this.add(ı);
+        
+        j.addActionListener(this);
+	this.add(j);
+        
+        k.addActionListener(this);
+	this.add(k);
+        
+        l.addActionListener(this);
+	this.add(l);
+        
+        m.addActionListener(this);
+	this.add(m);
+        
+        n.addActionListener(this);
+	this.add(n);
+        
+        o.addActionListener(this);
+	this.add(o);
+        
+        p.addActionListener(this);
+	this.add(p);
+        
+        q.addActionListener(this);
+	this.add(q);
+        
+        r.addActionListener(this);
+	this.add(r);
+        
+        s.addActionListener(this);
+	this.add(s);
+        
+        t.addActionListener(this);
+	this.add(t);
+        
+        u.addActionListener(this);
+	this.add(u);
+        
+        v.addActionListener(this);
+	this.add(v);
+        
+        w.addActionListener(this);
+	this.add(w);
+        
+        x.addActionListener(this);
+	this.add(x);
+        
+        y.addActionListener(this);
+	this.add(y);
+        
+        z.addActionListener(this);
+	this.add(z);
+        
+        Panel3.add(label1);
+        Panel3.add(ınput);
+        Panel3.add(guess);
+        
+      
+        add(Panel3);
+        add(Panel2);
+        add(Panel1);
+        
+       
+    }
+   
+    public static void main(String[] args) {
+        // TODO code application logic here
+        HangmanGame HGame = new HangmanGame();
+    }
+    
+    public void actionPerformed (ActionEvent bkb){
+        
+         //For File Chooser
+        FileChooser.setCurrentDirectory(new java.io.File("C:\\Users\\Bilge\\Desktop\\Master Ders Dosyaları\\ISE501 - Erbuğ Hoca"));
+        FileChooser.setDialogTitle("Game Settings");
+        FileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        
+        
+        
+        try{
+            
+        if (FileChooser.showOpenDialog(SG) == JFileChooser.APPROVE_OPTION){
+            
+            //This Field should be done !
+        }
+        }
+        
+        catch(Exception exception){
+            
+        if (FileChooser.showOpenDialog(LG) == JFileChooser.APPROVE_OPTION){
+            //This Field should be done ! 
+        }
+        }
+        
+        if (bkb.getSource() == Ex) {
+            JOptionPane.showConfirmDialog(null, "Would you like to exit ?");    
+        }
+            
+        else if (bkb.getSource() == NG){ 
+             ınput.setText("");
+        }
+        
+    
+    }
+    
+    }
+
+    
+
