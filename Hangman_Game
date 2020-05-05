@@ -27,10 +27,14 @@ import javax.swing.JTextField;
 
 import javax.swing.JFileChooser; //For File Chooser
 import java.io.File; //For File Chooser
+import java.util.ArrayList;
 import javafx.stage.FileChooser;
+
+import java.util.Scanner;
 
 public class HangmanGame extends JFrame implements ActionListener {
  
+    private ArrayList<JButton> alphabetButtons = new ArrayList<JButton>();
 
     //Menu Bar'ın oluşturulması
     JMenuBar MenuBar = new JMenuBar();
@@ -80,6 +84,9 @@ public class HangmanGame extends JFrame implements ActionListener {
     JButton y = new JButton("Y");
     JButton z = new JButton("Z");
     
+    //All JButton sorted in group
+    ButtonGroup ButtonG = new ButtonGroup();
+    
     //JTextField, Button, JLabel Place
     JTextField ınput = new JTextField(30);
     JButton guess = new JButton("Guess");
@@ -97,9 +104,14 @@ public class HangmanGame extends JFrame implements ActionListener {
     JLabel try10 = new JLabel("___");
     JLabel try11 = new JLabel("___");
     
+    
+    
+        
+    
     JPanel Panel1 = new JPanel(new FlowLayout(FlowLayout.CENTER));
     JPanel Panel2 = new JPanel(new FlowLayout(FlowLayout.CENTER));
     JPanel Panel3 = new JPanel(new FlowLayout(FlowLayout.CENTER));
+    
     
     public HangmanGame(){
         
@@ -263,44 +275,92 @@ public class HangmanGame extends JFrame implements ActionListener {
     public static void main(String[] args) {
         // TODO code application logic here
         HangmanGame HGame = new HangmanGame();
+    
+        /*
+    //Necessay Place for Logic
+    Scanner KeyboardInput = new Scanner(System.in);
+     
+    String secretWord = "London"+"Tokyo"+"Rome"+"Lisbon"+"Berlin"+"Madrid"+"Ankara"+"Washington"+"Moscow"+"Mexico"+"Lefkosa"+"Nicosia"+"Astana";
+    String guessWord = "";
+     
+    while(!guessWord.equals(secretWord)){
+         
+     }
+     */
+     
+     
     }
+    
+    private String[] randomWords;
+ 
+    public void setRandoms(){
+        randomWords[0] = "Tokyo";
+        randomWords[1] = "London";
+        randomWords[2] = "Rome";
+        randomWords[3] = "Lisbon";
+        randomWords[4] = "Berlin";
+        randomWords[5] = "Madrid";
+        randomWords[6] = "Ankara";
+        randomWords[7] = "Washington";
+        randomWords[8] = "Moscow";
+        randomWords[9] = "Mexico";
+        randomWords[10] = "Lefkosa";
+        randomWords[11] = "Nicosia";
+        randomWords[12] = "Astana";
+    }
+    
+   
     
     public void actionPerformed (ActionEvent bkb){
         
-         //For File Chooser
+        //For File Chooser
         FileChooser.setCurrentDirectory(new java.io.File("C:\\Users\\Bilge\\Desktop\\Master Ders Dosyaları\\ISE501 - Erbuğ Hoca"));
         FileChooser.setDialogTitle("Game Settings");
         FileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         
-        
-        
-        try{
-            
-        if (FileChooser.showOpenDialog(SG) == JFileChooser.APPROVE_OPTION){
+          
+       /* if (FileChooser.showOpenDialog(SG) == JFileChooser.APPROVE_OPTION){
             
             //This Field should be done !
         }
-        }
+        */
+       
+       /*
+        private void startGame() {
+		gameOver = false;
+		guesses = "";
+		badGuesses = 0;
+		nextButton.setEnabled(false);
+		for (int i = 0; i < alphabetButtons.size(); i++) {
+			alphabetButtons.get(i).setEnabled(true);
+		}
+		giveUpButton.setEnabled(true);
+		int index = (int)(Math.random()*wordlist.getWordCount());
+		word = wordlist.removeWord(index);
+		word = word.toUpperCase();
+		message = "The word has " + word.length() + " letters.  Let's play Hangman!";
+	}
+	
+	
+	 //This method can be called to test whether the user has guessed all the letters
+	 // in the current secret word.  That would mean the user has won the game.
+	 
+	private boolean wordIsComplete() {
+		for (int i = 0; i < word.length(); i++) {
+			char ch = word.charAt(i);
+			if ( guesses.indexOf(ch) == -1 ) {
+				return false;
+			}
+		}
+		return true;
+	}
         
-        catch(Exception exception){
-            
-        if (FileChooser.showOpenDialog(LG) == JFileChooser.APPROVE_OPTION){
-            //This Field should be done ! 
-        }
-        }
-        
-        if (bkb.getSource() == Ex) {
-            JOptionPane.showConfirmDialog(null, "Would you like to exit ?");    
-        }
-            
-        else if (bkb.getSource() == NG){ 
-             ınput.setText("");
-        }
-        
+        */
     
     }
     
     }
 
     
+
 
