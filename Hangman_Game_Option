@@ -1,0 +1,76 @@
+
+package homeworkein;
+/**
+ *
+ * @author Bilge
+ */
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class Game_Options extends JFrame implements ActionListener {
+    
+    JLabel Word_Data = new JLabel("Word Database File :");
+    JTextField File_Link = new JTextField(30);
+    JButton Change = new JButton("Change");
+    
+    JLabel Back_Color = new JLabel("Background Color :");
+    JComboBox Colors = new JComboBox();
+    
+    JButton OK = new JButton("OK");
+    JButton Apply = new JButton("Apply");
+    JButton Cancel = new JButton("Cancel");
+    
+    JPanel Panel1 = new JPanel();
+    JPanel Panel2 = new JPanel();
+    JPanel Panel3 = new JPanel();
+    
+    public Game_Options(){
+    
+        setTitle("Game Options");
+        setLayout(new FlowLayout());
+        setSize(400,100);
+        setResizable(false);
+        setVisible(true);
+        
+        Panel1.add(Word_Data);
+        Panel1.add(File_Link);
+        Panel1.add(Change);
+        add(Panel1);
+        
+        Panel2.add(Back_Color);
+        Panel2.add(Colors);
+        add(Panel2);
+        
+        Panel3.add(OK);
+        Panel3.add(Apply);
+        Panel3.add(Cancel);
+        add(Panel3);
+        
+        
+        Colors.addItem("Grey");
+        Colors.addItem("White");
+        Colors.addItem("Blue");
+        Colors.addItem("Pink");
+        Colors.addItem("Yellow");
+        
+        //Buttons Actived
+        Change.addActionListener(this);
+        OK.addActionListener(this);
+        Apply.addActionListener(this);
+        Cancel.addActionListener(this);
+        
+        //ComboBox Activated
+        Colors.addActionListener(this);
+    }
+    
+     public static void main(String[] args) {
+        // TODO code application logic here
+        Game_Options HGame = new Game_Options();
+    }
+    
+    public void actionPerformed(ActionEvent bkb){
+      
+        
+    }
+}
